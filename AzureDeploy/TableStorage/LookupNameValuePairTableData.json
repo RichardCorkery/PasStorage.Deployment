@@ -1,0 +1,8 @@
+[
+    {
+        "PartitionKey": "Lookup1",  
+        "RowKey": "972370e5-41bd-43d4-afd1-f09573fce5b4",
+        "Name": "Name1",
+        "Value": "Value1"
+    }
+  ]

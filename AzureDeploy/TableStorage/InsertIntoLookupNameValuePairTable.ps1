@@ -16,10 +16,18 @@ $storageTable = Get-AzStorageTable `
     -ErrorVariable ev `
     -ErrorAction SilentlyContinue
 
-if ($ev) {       
-    New-AzStorageTable -Name $tableName -Context $storageAccount.Context
-    $storageTable = Get-AzStorageTable -Name $tableName -Context $storageAccount.Context
+#if ($ev) {       
+#    New-AzStorageTable -Name $tableName -Context $storageAccount.Context
+#    $storageTable = Get-AzStorageTable -Name $tableName -Context $storageAccount.Context
+#}
+
+if($storageTable) {
+    Remove-AzStorageTable -Name $tableName -Context $storageAccount.Context -Force     
 }
+
+New-AzStorageTable -Name $tableName -Context $storageAccount.Context
+
+$storageTable = Get-AzStorageTable -Name $tableName -Context $storageAccount.Context
 
 $tableDataPath = "LookupNameValuePairTableData.json"
 

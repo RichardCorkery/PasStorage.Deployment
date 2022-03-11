@@ -16,16 +16,10 @@ $storageTable = Get-AzStorageTable `
     -ErrorVariable ev `
     -ErrorAction SilentlyContinue
 
-#if ($ev) {       
-#    New-AzStorageTable -Name $tableName -Context $storageAccount.Context
-#    $storageTable = Get-AzStorageTable -Name $tableName -Context $storageAccount.Context
-#}
-
-if($storageTable) {
-    Remove-AzStorageTable -Name $tableName -Context $storageAccount.Context -Force     
+if ($ev) {       
+     New-AzStorageTable -Name $tableName -Context $storageAccount.Context
+    $storageTable = Get-AzStorageTable -Name $tableName -Context $storageAccount.Context
 }
-
-New-AzStorageTable -Name $tableName -Context $storageAccount.Context
 
 $storageTable = Get-AzStorageTable -Name $tableName -Context $storageAccount.Context
 

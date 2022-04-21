@@ -68,8 +68,7 @@
             "apiVersion": "2021-06-01",
             "name": "[concat(parameters('storageAccountName'), '/default/LookupNameValuePair')]",
             "dependsOn": [
-                "[resourceId('Microsoft.Storage/storageAccounts/tableServices', parameters('storageAccountName'), 'default')]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName'))]"
+                "[resourceId('Microsoft.Storage/storageAccounts/tableServices', parameters('storageAccountName'), 'default')]"
             ]
         }
     ]

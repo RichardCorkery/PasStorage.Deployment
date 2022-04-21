@@ -17,8 +17,7 @@
             "name": "[parameters('storageAccountName')]",
             "location": "[parameters('location')]",
             "sku": {
-                "name": "Standard_RAGRS",
-                "tier": "Standard"
+                "name": "Standard_RAGRS"
             },
             "kind": "StorageV2",
             "properties": {

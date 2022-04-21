@@ -4,6 +4,9 @@
     "parameters": {
         "storageAccountName": {            
             "type": "string"
+        },
+        "location": {            
+            "type": "string"
         }
     },
     "variables": {},
@@ -12,7 +15,7 @@
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2021-06-01",
             "name": "[parameters('storageAccountName')]",
-            "location": "eastus",
+            "location": "[parameters('location')]",
             "sku": {
                 "name": "Standard_RAGRS",
                 "tier": "Standard"

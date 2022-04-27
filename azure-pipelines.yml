@@ -6,12 +6,13 @@ pool:
 
 steps:
 
+# Uses: https://marketplace.visualstudio.com/items?itemName=piraces.bicep-tasks
 - task: BicepBuild@0
   inputs:
     process: 'single'
-    sourceFile: '$(Build.SourcesDirectory)\AzureDeploy\AzureDeploy.bicep'
+    sourceFile: '.\AzureDeploy\AzureDeploy.bicep'
     stdout: false # Note if stdout is true 'outputDirectory' will not be interpreted
-    outputFile: '$(Build.SourcesDirectory)\AzureDeploy\sample1.out.json' # Only when 'stdout' is false or not defined and 'outputDirectory' is empty or not defined
+    outputFile: '.\AzureDeploy\sample1.out.json' # Only when 'stdout' is false or not defined and 'outputDirectory' is empty or not defined
 
 - task: CopyFiles@2
   displayName: 'Copy Deploy files'

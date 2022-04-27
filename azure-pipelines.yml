@@ -19,7 +19,7 @@ steps:
     azureSubscription: 'Pay-As-You-Go ($(subscriptionId))'
     scriptType: 'pscore'
     scriptLocation: 'inlineScript'
-    inlineScript: az bicep build --file '$(Build.SourcesDirectory)/AzureDeploy/AzureDeploy.bicep' --outfile '$(Build.ArtifactStagingDirectory)/AzureDeploy/AzureDeploy.json'
+    inlineScript: az bicep build --file '$(Build.SourcesDirectory)\AzureDeploy\AzureDeploy.bicep' --outfile '$(Build.ArtifactStagingDirectory)\AzureDeploy\AzureDeploy.json'
 
 - task: CopyFiles@2
   displayName: 'Copy Deploy files'

@@ -10,15 +10,22 @@ steps:
 - task: BicepBuild@0
   inputs:
     process: 'single'
-    sourceFile: '.\AzureDeploy\AzureDeploy.bicep'
+    sourceFile: '$(Build.SourcesDirectory)\AzureDeploy\AzureDeploy.bicep'
     stdout: false # Note if stdout is true 'outputDirectory' will not be interpreted
-    outputFile: '$(Build.ArtifactStagingDirectory)\AzureDeploy\AzureDeploy.json' # Only when 'stdout' is false or not defined and 'outputDirectory' is empty or not defined
+    outputFile: '$(Build.SourcesDirectory)\AzureDeploy\AzureDeploy.json' # Only when 'stdout' is false or not defined and 'outputDirectory' is empty or not defined
 
 - task: CopyFiles@2
   displayName: 'Copy Deploy files'
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)'
     Contents: '**/AzureDeploy/**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: CopyFiles@2
+  displayName: 'Copy Deploy files'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '**/AzureDeploy/AzureDeploy.json'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - publish: '$(Build.ArtifactStagingDirectory)'
